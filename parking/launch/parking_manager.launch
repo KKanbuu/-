@@ -1,0 +1,15 @@
+<launch>
+    <arg name="g_width_" default="4.0"/>
+    <arg name="p1_width_" default="3.0"/>
+    <arg name="p1_height_" default="4.0"/>
+    <arg name="egovehicleLength" default="3.5"/>
+    
+    <node pkg="parking" type="pub_index" name="pub_index"/>
+    <node pkg="parking" type="pub_test" name="pub_test"/>
+    <node pkg="parking" type="dubin_test" name="dubin_test">
+        <param name="g_width_" value="$(arg g_width_)" />
+        <param name="p1_width_" value="$(arg p1_width_)" />
+        <param name="p1_height_" value="$(arg p1_height_)" />
+        <param name="egovehicleLength" value="$(arg egovehicleLength)" />
+    </node>
+</launch>
